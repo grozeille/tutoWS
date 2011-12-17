@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions name="MyServiceImplService" targetNamespace="http://grozeille.org/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://grozeille.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+<xs:schema elementFormDefault="unqualified" targetNamespace="http://grozeille.org/" version="1.0" xmlns:tns="http://grozeille.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xs:element name="plus" type="tns:plus"/>
+<xs:element name="plusResponse" type="tns:plusResponse"/>
+<xs:complexType name="plus">
+<xs:sequence>
+<xs:element name="a" type="xs:int"/>
+<xs:element name="b" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+<xs:complexType name="plusResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="plusResponse">
+    <wsdl:part element="tns:plusResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="plus">
+    <wsdl:part element="tns:plus" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="MyService">
+    <wsdl:operation name="plus">
+      <wsdl:input message="tns:plus" name="plus">
+    </wsdl:input>
+      <wsdl:output message="tns:plusResponse" name="plusResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyServiceImplServiceSoapBinding" type="tns:MyService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="plus">
+      <soap12:operation soapAction="" style="document"/>
+      <wsdl:input name="plus">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="plusResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyServiceImplService">
+    <wsdl:port binding="tns:MyServiceImplServiceSoapBinding" name="MyServiceImplPort">
+      <soap12:address location="http://localhost:8080/tuto1/services/WS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,1 +1,1 @@
-Tuto WS CXF
+Nouveau test

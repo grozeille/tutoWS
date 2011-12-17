@@ -1,2 +1,2 @@
-Tuto WS CXF
+Nouveau test
 bug fix

@@ -15,9 +15,11 @@ public class MyServiceImpl implements MyService {
 		this.dao = dao;
 	}
 
-	public int plus(int a, int b) {
-		dao.save(a);
-		return a+b;
+	public Result plus(int a, int b) {
+		Result result = new Result();
+		result.setValue(a+b);
+		result.setMessage(a+"+"+b);
+		return result;
 	}
 
 }

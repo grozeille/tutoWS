@@ -6,14 +6,24 @@ import javax.jws.WebService;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 
 @WebService
-@Path("/v1")
-@Produces({ "text/xml", "text/plain" })
+@Path("/myservice")
+@Produces("application/json")
+//@Produces({ "text/xml" })
+//@Produces({ "text/plain" })
 public interface MyService {
 	
 	@WebMethod
 	@GET
-	@Path("/test")
-	int plus(@WebParam(name ="a") int a, @WebParam(name ="b")int b);
+	@Path("/plus")
+//	@Produces("application/json")
+	Result plus(
+			@QueryParam("a")
+			@WebParam(name ="a") 
+			int a, 
+			@QueryParam("b")
+			@WebParam(name ="b")
+			int b);
 }

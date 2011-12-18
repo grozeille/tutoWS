@@ -16,8 +16,8 @@ public class MyServiceTest {
 				
 			}
 		});
-		int result = impl.plus(1, 2);
+		Result result = impl.plus(1, 2);
 		
-		Assert.assertEquals(3, result);
+		Assert.assertEquals(3, result.getValue());
 	}
 }

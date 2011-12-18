@@ -24,7 +24,7 @@
 		<jaxws:implementor>
 			<ref bean="myServiceImpl" />
 		</jaxws:implementor>
-	</jaxws:endpoint>
+	</jaxws:endpoint> 
 	
 	<jaxrs:server id="greeterRest" address="/REST">
 		<jaxrs:serviceBeans>
@@ -32,10 +32,11 @@
 		</jaxrs:serviceBeans>
 		<jaxrs:extensionMappings>
 			<entry key="xml" value="application/xml" />
+			<entry key="json" value="application/json" />
 		</jaxrs:extensionMappings>
 		<jaxrs:providers>
-			<!-- <ref bean="jaxbProvider" /> -->
-			<ref bean="aegisProvider" />
+			<ref bean="jaxbProvider" />
+<!-- 			<ref bean="aegisProvider" /> -->
 			<ref bean="jsonProvider" />
 		</jaxrs:providers>
 	</jaxrs:server>

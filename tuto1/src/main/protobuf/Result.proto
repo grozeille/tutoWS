@@ -1,0 +1,10 @@
+package org.grozeille;
+
+option java_package = "org.grozeille";
+option java_outer_classname = "ResultProto";
+option optimize_for = SPEED;
+
+message Result {
+    required int32 value = 1;
+    required string message = 2;
+}

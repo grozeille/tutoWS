@@ -1,6 +1,7 @@
 package org.grozeille;
 
 import com.wordnik.swagger.annotations.*;
+import org.grozeille.proto.AlternateMediaType;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -12,8 +13,8 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 @WebService
-@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 @Path("/myservice")
+@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML, AlternateMediaType.APPLICATION_XPROTOBUF})
 @Api(value = "/myservice", description = "Calculator")
 public interface MyService {
 	
@@ -25,7 +26,7 @@ public interface MyService {
 			@QueryParam("a")
 			@WebParam(name ="a")
             @ApiParam(value = "first value", required = true)
-			int a, 
+			int a,
 			@QueryParam("b")
 			@WebParam(name ="b")
             @ApiParam(value = "second value", required = true)

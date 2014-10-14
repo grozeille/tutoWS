@@ -35,10 +35,12 @@
 		<jaxrs:extensionMappings>
 			<entry key="xml" value="application/xml" />
 			<entry key="json" value="application/json" />
+            <entry key="x-protobuf" value="application/x-protobuf" />
 		</jaxrs:extensionMappings>
 		<jaxrs:providers>
 			<ref bean="jaxbProvider" />
             <ref bean="jacksonProvider" />
+            <ref bean="protobuffProvider" />
             <!-- required for writing swagger classes -->
             <ref bean="resourceWriter" />
             <ref bean="apiWriter" />
@@ -48,6 +50,8 @@
 	<bean id="jaxbProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider" />
 
     <bean id="jacksonProvider" class="com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider" />
+
+    <bean id="protobuffProvider" class="org.grozeille.proto.ProtobuffJacksonJaxbJsonProvider" />
 
     <!-- Swagger API listing resource -->
     <bean id="swaggerResourceJSON" class="com.wordnik.swagger.jaxrs.listing.ApiListingResourceJSON" />

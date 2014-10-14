@@ -15,6 +15,8 @@ import javax.ws.rs.core.MediaType;
 @Path("/")
 @Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
 @Api(value = "/", description = "Calculator")
+@Path("/myservice")
+@Api(value = "/myservice", description = "Calculator")
 public interface MyService {
 	
 	@WebMethod
